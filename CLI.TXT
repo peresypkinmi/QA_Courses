@@ -1,0 +1,53 @@
+2) Создать папку: mkdir nameFolder
+3) Зайти в папку: cd nameFolder
+4) Создать 3 папки:mkdir test1 test2 test3
+5) Зайти в любоую папку: cd test2
+6) Создать 5 файлов (3 txt, 2 json): touch data1.txt data2.txt data3.txt
+body1.json body2.json 
+7) Создать 3 папки mkdir folderOne folderTwo folderThree
+8. Вывести список содержимого папки: ls -la
+9) + Открыть любой txt файл: vim data1.txt
+10) + написать туда что-нибудь, любой текст.: i (пишем текст)
+11) + сохранить и выйти.:"Esc,:wq"
+12) Выйти из папки на уровень выше:cd ..
+—
+13) переместить любые 2 файла, которые вы создали, в любую другую папку.
+: mv data1.txt body1.json /c/User/NameUser/
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку.
+:cp data2.txt body2.json /c/User/NameUser/
+15) Найти файл по имени:find -name data2.txt
+16) просмотреть содержимое в реальном времени (команда grep)
+ изучите как она работает.:grep -r слово в файле, которое ищем /директория/по которой/рекурсивно/ищем пример grep -r Key ./
+17) вывести несколько первых строк из текстового файла: head имя файла
+18) вывести несколько последних строк из текстового файла: tail имя файла
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает.: less имя файла. для выхода q
+20) вывести дату и время: date
+
+
+
+
+Задание *
+1) Отправить http запрос на сервер.
+curl "http://162.55.220.72:5005/object_info_3?name=Vadim&age=32&salary=1000"
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+{#!/bin/bash
+
+mkdir testtest
+
+cd testtest
+
+mkdir test5 test6 test7
+cd test6
+touch data1.txt data2.txt data3.txt body1.json body2.json
+mkdir test1 test2 test3
+ls 
+mv data1.txt body1.json /c/Users/Miiha/OneDrive/Рабочий\ стол/testtest/
+echo "Готово!"}
+
+	
+
+
+=====================
+1) Посмотреть где я - pwd
+2) Создать папку - mkdir foldername
+3) Зайти в папку - cd foldername
