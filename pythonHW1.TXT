@@ -1,0 +1,34 @@
+
+s = "переменная типа стрингггг"# 1
+num = 999 #переменная типа int   2
+fl = 5.5 #переменная типа float    3
+a = b'hello world!!'#переменная ттипа bytes   4
+lst = ["переменная", "типа", "list"]#   5
+tup = (76, 76, 33, 23,"try")#переменнная типа tuple   6
+n = set("привет!!!")#переменная типа set изменяемый тип данных!!!   7
+nf = frozenset("qweerty")# frozenset - неизменяемый тип данных!!!   8
+D = {"переменная":"типа", "dict":"value"}# переменнная типа dict   9
+res = (s, n, nf, num, fl, a, lst, tup, D)#   10
+for i in range(len(res)):# 10
+    print(res[i], type(res[i]))# 10
+m = "я вторя переменна стринг"
+k = m+s
+print(k, type(k))
+
+num2 = 345
+r = num+num2
+print(r, type(r))
+
+div = num/num2
+print(div, type(div))
+
+pr = num*num2
+print(pr, type(pr))
+
+div2 = num//num2
+print(div2, type(div2))
+
+
+div3 = num%num2
+print(div3, type(div3))
+
