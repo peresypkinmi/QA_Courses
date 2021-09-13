@@ -1,0 +1,122 @@
+import random
+def printRes(lsA):
+    lsOper = [">", "<", ">=", "<=", "!="]
+
+    a = lsA[random.randint(0, len(lsA)-1)]
+    b = lsA[random.randint(0, len(lsA)-1)]
+    c = lsOper[random.randint(0, len(lsOper)-1)]
+    if c == ">" and a>b:
+        res =[" Вариант "+str(a)+c+str(b)+" True"]
+    elif c == "<" and a<b:
+        res = [" Вариант " + str(a) + c + str(b) + " True"]
+    elif c == ">=" and a >= b:
+        res = [" Вариант " + str(a) + c + str(b) + " True"]
+    elif c == "<=" and a <= b:
+        res = [" Вариант " + str(a) + c + str(b) + " True"]
+    elif c == "!=" and a != b:
+        res = [" Вариант " + str(a) + c + str(b) + " True"]
+    else:
+        res = [" Вариант " + str(a) + c + str(b) + " False"]
+    return res
+
+s1, s2 = "пыщ", "пыщ-пыщ" #1 пункт задания
+fl1, fl2, fl3, fl4 = 1.1, 4.3, 6.5, 7.8
+lsFloat = [fl1, fl2, fl3, fl4]#список флоат, чтобы скармливать функции, которая будет его перебирать
+num1, num2, num3, num4 = 22, 34, 56, 98
+lsNum = [num1, num2, num3, num4]#список int, чтобы скармливать функции, которая будет его перебирать
+lsLogic = ["or", "and", "not"]
+Res = []
+i = 0
+while i<15:                 #4 пункт задания
+    res = printRes(lsNum)   #функция, которая рандомно перебирает листы со значениями для сравнения их, и варианты операторов и возвращает true или false
+    if res not in Res:
+        Res+=res
+        i+=1
+        print(str(i), *res)
+    else:
+        continue
+print()
+i = 0
+while i<9:                   #5 пункт задания
+    res = printRes(lsFloat)
+    if res not in Res:
+        Res+=res
+        i+=1
+        print(str(i), *res)
+    else:
+        continue
+
+#6 пункт задания
+a = num1>num2 or num3<num4
+print("1", "num1>num2 or num3<num4", a)
+a = num1>(num2 or num3<num4)
+print("2", "num1>num2 or num3<num4", a)
+a = num4>=num1>=num2
+print("3", "num4>=num1>=num2", a)
+a = not(num4>=num1>=num2)
+print("4", "not(num4>=num1>=num2)", a)
+a = not(not(num4>=num1>=num2))
+print("5", "not(not(num4>=num1>=num2))", a)
+a = num4=not num2
+print("6", "num4=not num2", a)
+a = (num4<=num2 and num3>num1) or (num2<=num3<=num4)
+print("7", "(num4<=num2 and num3>num1) or (num2<=num3<=num4)", a)
+a = (num4<=num2 and num3>num1) and (num2<=num3<=num4)
+print("8", "(num4<=num2 and num3>num1) and (num2<=num3<=num4)", a)
+a = (num4<=num2 and num3>num1) and not(num2<=num3<=num4)
+print("9", "(num4<=num2 and num3>num1) and not(num2<=num3<=num4)", a)
+a = ((num4<=num2 and num3>num1) or (num2<=num3<=num4)) and num3<num2
+print("10", "((num4<=num2 and num3>num1) or (num2<=num3<=num4)) and num3<num2", a)
+
+print()
+print("Пункт 7(сравнить введенное число с 30)")
+
+const = 30
+print("Введите положительное натуральное число")
+
+n = int(input())
+if n>const:
+    print("Вы вели число = "+str(n)+" которое больше 30")
+elif n==const:
+    print("Вы вели число = " + str(n) + " которое равно 30")
+elif n<const:
+    print("Вы вели число = " + str(n) + " меньше 30")
+
+print()
+print("Пункт 8(сравнить введенное число с рандомным)")
+const = random.randint(1, 100)
+print("Введите положительное натуральное число")
+
+n = int(input())
+if n>const:
+    print("Вы вели число = "+str(n)+" которое больше "+str(const))
+elif n==const:
+    print("Вы вели число = " + str(n) + " которое равно "+str(const))
+elif n<const:
+    print("Вы вели число = " + str(n) + " меньше "+str(const))
+
+print()
+print("Пункт 9(сравнить введенное число с двумя рандомными)")
+# const = random.randint(1, 100)
+print("Введите положительное натуральное число")
+n = int(input())
+i = 0
+res = []
+while i<2:
+    const = random.randint(1, 100)
+    if n > const:
+        mess = [" больше " + str(const)," и"]
+    elif n == const:
+        mess = [" равно " + str(const)," и"]
+    elif n < const:
+        mess = [" меньше " + str(const)," и"]
+    if i==1:
+        del mess[1]
+
+
+    res +=mess
+    i+=1
+
+print("Вы вели число = " + str(n) + " которое", *res)
+
+
