@@ -1,0 +1,171 @@
+--создание таблицы employees
+
+create table employees(
+id serial primary key,
+employee_name varchar (50) not null)
+
+
+
+--наполнение таблицы employees
+
+insert into employees (id, employee_name) values(12, 'Vladilen')
+
+
+
+--создание таблицы roles
+
+create table roles(
+id serial primary key,
+role_title varchar (50) unique not null)
+
+
+
+
+--наполнение таблицы roles
+
+insert into employees (id, employee_name) values(1, 'manager')
+
+
+
+
+--создание таблицы salary
+
+create table salary (
+id serial primary key,
+salary integer not null)
+
+
+
+--наполнение таблицы salary
+
+insert into salary (id, salary) values(1,300)
+
+
+
+
+--создание таблицы roles_salary
+
+create table roles_salary(
+id serial unique,
+id_role int not null,
+id_salary int not null,
+primary key (id),
+foreign key(id_role)
+references roles(id),
+foreign key(id_salary)
+references salary(id)
+
+
+
+
+--наполнение таблицы roles_salary
+
+insert into roles_salary (id, id_role, id_salary) values(1,8,10)
+
+
+
+
+--создание таблицы employees_roles
+
+create table employees_roles(
+id serial unique,
+id_role int not null,
+id_employee int not null,
+primary key (id),
+foreign key(id_role)
+references roles(id),
+foreign key(id_employee)
+references employees(id)
+)
+
+
+
+--наполнение таблицы employees_roles
+
+insert into employees_roles (id, id_role, id_employee) values(10,8,10)
+
+
+
+--создание таблицы Service
+
+create table Service(
+id serial not null,
+service_title varchar (50) unique not null,
+price int,
+primary key(id))
+
+
+
+--наполнение таблицы Service
+
+insert into Service (id, service_title) values(10,'OOO Maksimum')
+
+
+
+--создание таблицы materials
+
+create table materials(
+id serial primary key,
+material_title varchar(50) unique not null,
+amount int not null,
+price int not null)
+
+
+
+--созданние таблицы claim
+
+create table claim (
+id serial primary key,
+service_id int not null,
+employee_id int not null,
+material_id int ,
+claim_date date not null,
+sales_manager int not null,
+foreign key(service_id)
+references service(id),
+foreign key(employee_id)
+references employees(id),
+foreign key(material_id)
+references materials(id),
+foreign key(sales_manager)
+references employees(id))
+
+
+--создание таблицы suppliers
+
+create table Suppliers(
+id serial primary key,
+suppliers_name varchar(50) unique not null)
+
+
+ 
+--Обновить таблицу Materials. Добавить поле suplier_id которое связано с полем id в таблице Suppliers
+
+alter table materials add column supplier_id int default(1)
+
+
+
+--создание связи между materials и suppliers
+
+ALTER TABLE materials ADD CONSTRAINT supl_fk FOREIGN KEY (supplier_id) REFERENCES suppliers (id)
+
+
+
+--наполнение таблицы suppliers
+
+insert into Suppliers (id, suppliers_name) values(10,'OOO Maksimum')
+
+
+
+--Обновить таблицу Employees. Добавить varchar поле surname на 50 символов
+
+alter table employees add column surname varchar (50)
+
+
+
+--Обновить таблицу Salary. Добавить varchar поле currency на 7 символов.
+
+alter table salary add column currency varchar(7)
+
+
+
